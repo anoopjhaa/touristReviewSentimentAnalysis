@@ -1,0 +1,60 @@
+<html>
+
+{% include 'head.html' %}
+
+<body>
+    {% include 'navbar.html' %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <h3 class="text-center">Statistical Observations </h3>
+                <div class="d-flex align-items-center justify-content-center mt-5">
+                    <table class="table table-bordered border rounded-5 table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Feature Extraction Algorithm</th>
+                                <th scope="col">Machine Learning Model</th>
+                                <th scope="col">Accuracy</th>
+                                <th scope="col">Precision</th>
+                                <th scope="col">Recall</th>
+                                <th scope="col">F1-Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                {% for i in range(data|length) %}
+                                {% if i == 0%}
+                                <th scope="row">Count Vectorization</th>
+                                <th scope="row">Naive Bayes</th>
+                                {% elif i == 1%}
+                                <th scope="row">Count Vectorization</th>
+                                <th scope="row">Random Forest</th>
+                                {% elif i == 2%}
+                                <th scope="row">Count Vectorization</th>
+                                <th scope="row">Support Vector Machine</th>
+                                {% elif i == 3%}
+                                <th scope="row">TFIDF Vectorization</th>
+                                <th scope="row">Naive Bayes</th>
+                                {% elif i == 4%}
+                                <th scope="row">TFIDF Vectorization</th>
+                                <th scope="row">Random Forest</th>
+                                {% elif i == 5%}
+                                <th scope="row">TFIDF Vectorization</th>
+                                <th scope="row">Support Vector Machine</th>
+                                {% endif %}
+                                {% for j in range(data[i]|length) %}
+                                <td>{{ "%.2f"|format(data[i][j]|float) }}</td>
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ________________________________________________________________________________________________________________________ -->
+    {% include 'scripts.html' %}
+</body>
+
+</html>>

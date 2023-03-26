@@ -1,0 +1,51 @@
+<html>
+{% include 'head.html' %}
+
+<body>
+    {% include 'navbar.html' %}
+    <div class="container-fluid">
+        <div class="row ml-3">
+            <div class="col-md-3" style="height: 90vh; overflow-y: scroll;">
+                <div class="card mt-3" style="width: 18rem;" data-toggle="collapse" data-target="#place-details-1">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/3e/14/d6/no-comment.jpg?w=600&h=600&s=1"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Tourist Place 1</h5>
+                        <p class="card-text">This is a short description of Tourist Place 1.</p>
+                    </div>
+                </div>
+                <div class="card mt-3" style="width: 18rem;" data-toggle="collapse" data-target="#place-details-2">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Tourist Place 2</h5>
+                        <p class="card-text">This is a short description of Tourist Place 2.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="card-details" id="place-details-1" style="display: none;">
+                    <h2>Tourist Place 1</h2>
+                    <p>This is a long description of Tourist Place 1.</p>
+                    <p>Some more details about Tourist Place 1.</p>
+                </div>
+                <div class="card-details" id="place-details-2" style="display: none;">
+                    <h2>Tourist Place 2</h2>
+                    <p>This is a long description of Tourist Place 2.</p>
+                    <p>Some more details about Tourist Place 2.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'scripts.html' %}
+    <script src="{{ url_for('static', filename='cardSelection.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $.getJSON("/places.json", function (data) {
+                window.data = data;
+                console.log(data);
+            });
+        });
+    </script>
+</body>
+
+</html>

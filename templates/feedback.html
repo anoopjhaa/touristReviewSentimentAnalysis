@@ -1,0 +1,27 @@
+<div class="container text-center mt-5 text-4xl">
+    <p class="h2 lead">The review is <strong>{{ result }}</strong>.</p>
+</div>
+<div class="py-5">
+    <p class="h4 lead text-center">Please submit feedback to improve our model</p>
+    <form method="POST" action="http://127.0.0.1:5000/feedback">
+        <div class="container-fluid py-3">
+            <div class="row justify-content-center">
+                <div class="form-group col-md-6 text-center">
+                    <select class="form-control custom-select" id="feature_extraction" name="feature_extraction"
+                        required>
+                        <option selected disabled>Select Sentiment</option>
+                        <option value="Positive">Positive</option>
+                        <option value="Negative">Negative</option>
+                        <option value="Neutral">Neutral</option>
+                    </select>
+
+                    <div class="mt-3">
+                        <button class="btn btn-success" type="submit" value="Submit">
+                            Submit Feedback
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
