@@ -8,10 +8,13 @@ from flask import Flask, render_template, request
 import pandas as pd
 import pickle
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
-from sklearn.naive_bayes import MultinomialNB
 from models import initializeModels, getVectorizers, getStatistics
+from pymongo import MongoClient
 
 app = Flask(__name__)
+mongoClient = MongoClient("mongodb://localhost:27017")
+db = mongoClient["tourism"]
+placesCollection = db["places"]
 
 df = pd.read_csv('Reviews_balanced-10000.csv')
 initializeModels(df)
@@ -92,7 +95,10 @@ def about():
 
 @app.route('/places')
 def places():
-    return render_template('places.html')
+    placesData = []
+    for place in placesCollection.find():
+        placesData.append(place)
+    return render_template('places.html', places=placesData)
 
 
 if __name__ == '__main__':
