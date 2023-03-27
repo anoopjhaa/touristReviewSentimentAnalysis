@@ -6,8 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 import pickle
 
-X_train, X_test, y_train, y_test, X_train_CountVec, X_train_TFIDF, TFIDF_Vectorizer, Count_Vectorizer = [
-    None] * 8
+X_train, X_test, y_train, y_test, X_train_CountVec, X_train_TFIDF, TFIDF_Vectorizer, Count_Vectorizer = [None] * 8
 statistics = []
 
 
