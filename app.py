@@ -55,7 +55,6 @@ def predict():
 
     review_vector = vectorizer.transform([review])
     rating_pred = clf.predict(review_vector)
-    print(rating_pred[0])
     return render_template('index.html', result=rating_pred[0])
 
 
@@ -84,7 +83,6 @@ def feedback():
 
 @app.route('/statistics')
 def statistics():
-    print(getStatistics())
     return render_template('statistics.html', data=getStatistics())
 
 

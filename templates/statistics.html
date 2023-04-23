@@ -28,19 +28,19 @@
                                 <th scope="row">Naive Bayes</th>
                                 {% elif i == 1%}
                                 <th scope="row">Count Vectorization</th>
-                                <th scope="row">Random Forest</th>
+                                <th scope="row">Support Vector Machine</th>
                                 {% elif i == 2%}
                                 <th scope="row">Count Vectorization</th>
-                                <th scope="row">Support Vector Machine</th>
+                                <th scope="row">Random Forest</th>
                                 {% elif i == 3%}
                                 <th scope="row">TFIDF Vectorization</th>
                                 <th scope="row">Naive Bayes</th>
                                 {% elif i == 4%}
                                 <th scope="row">TFIDF Vectorization</th>
-                                <th scope="row">Random Forest</th>
+                                <th scope="row">Support Vector Machine</th>
                                 {% elif i == 5%}
                                 <th scope="row">TFIDF Vectorization</th>
-                                <th scope="row">Support Vector Machine</th>
+                                <th scope="row">Random Forest</th>
                                 {% endif %}
                                 {% for j in range(data[i]|length) %}
                                 <td>{{ "%.2f"|format(data[i][j]|float) }}</td>
